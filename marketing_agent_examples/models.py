@@ -26,3 +26,11 @@ class BlogPost(BaseModel):
     excerpt: str = Field(..., description="1-2 sentence summary that entices the reader")
     content: str = Field(..., description="Main blog content (approx. 300-500 words), formatted with headings and paragraphs")
     keywords: list[str] = Field(..., description="List of SEO keywords relevant to the post")
+
+class BlogPostEvaluation(BaseModel):
+    seo_optimization: int = Field(..., ge=0, le=5)
+    clickability: int = Field(..., ge=0, le=5)
+    readability: int = Field(..., ge=0, le=5)
+    audience_fit: int = Field(..., ge=0, le=5)
+    content_quality: int = Field(..., ge=0, le=5)
+    comments: str
