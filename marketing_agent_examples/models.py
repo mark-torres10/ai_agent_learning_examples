@@ -58,3 +58,11 @@ class SocialMediaPost(BaseModel):
 
 class SocialMediaPostsWrapper(BaseModel):
     posts: list[SocialMediaPost]
+
+class SocialMediaPostEvaluation(BaseModel):
+    platform_fit: int = Field(..., ge=0, le=5)
+    audience_alignment: int = Field(..., ge=0, le=5)
+    engagement_potential: int = Field(..., ge=0, le=5)
+    hashtag_relevance: int = Field(..., ge=0, le=5)
+    clarity_appeal: int = Field(..., ge=0, le=5)
+    comments: str
