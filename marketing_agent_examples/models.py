@@ -19,3 +19,10 @@ class IdeaEvaluation(BaseModel):
 
 class IdeaEvaluationOutput(BaseModel):
     evaluations: list[IdeaEvaluation]
+
+class BlogPost(BaseModel):
+    title: str = Field(..., description="SEO-optimized title of the blog post")
+    slug: str = Field(..., description="URL-friendly slug version of the title")
+    excerpt: str = Field(..., description="1-2 sentence summary that entices the reader")
+    content: str = Field(..., description="Main blog content (approx. 300-500 words), formatted with headings and paragraphs")
+    keywords: list[str] = Field(..., description="List of SEO keywords relevant to the post")
