@@ -49,3 +49,12 @@ class EmailBlastDraftEvaluation(BaseModel):
     cta_strength: int = Field(..., ge=0, le=5)
     tone_fit: int = Field(..., ge=0, le=5)
     comments: str
+
+class SocialMediaPost(BaseModel):
+    platform: str = Field(..., description="Social media platform (e.g., Facebook, Instagram)")
+    content: str = Field(..., description="Main content of the social media post")
+    hashtags: list[str] = Field(..., description="Relevant and trending hashtags")
+    intended_audience: str = Field(..., description="Brief description of the ad targeting audience")
+
+class SocialMediaPostsWrapper(BaseModel):
+    posts: list[SocialMediaPost]
