@@ -34,3 +34,10 @@ class BlogPostEvaluation(BaseModel):
     audience_fit: int = Field(..., ge=0, le=5)
     content_quality: int = Field(..., ge=0, le=5)
     comments: str
+
+class EmailBlastDraft(BaseModel):
+    subject_line: str = Field(..., description="The email's subject line, optimized for opens")
+    preview_text: str = Field(..., description="Short preview text shown in email clients")
+    body: str = Field(..., description="Main email body, in simple HTML or plain text format")
+    call_to_action: str = Field(..., description="Clear and concise call-to-action phrase")
+    explanation: str = Field(..., description="Explanation of why this CTA was chosen for this audience and what user response is expected")
