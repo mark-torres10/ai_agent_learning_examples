@@ -41,3 +41,11 @@ class EmailBlastDraft(BaseModel):
     body: str = Field(..., description="Main email body, in simple HTML or plain text format")
     call_to_action: str = Field(..., description="Clear and concise call-to-action phrase")
     explanation: str = Field(..., description="Explanation of why this CTA was chosen for this audience and what user response is expected")
+
+class EmailBlastDraftEvaluation(BaseModel):
+    subject_effectiveness: int = Field(..., ge=0, le=5)
+    preview_quality: int = Field(..., ge=0, le=5)
+    message_clarity: int = Field(..., ge=0, le=5)
+    cta_strength: int = Field(..., ge=0, le=5)
+    tone_fit: int = Field(..., ge=0, le=5)
+    comments: str
