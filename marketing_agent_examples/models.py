@@ -20,6 +20,11 @@ class IdeaEvaluation(BaseModel):
 class IdeaEvaluationOutput(BaseModel):
     evaluations: list[IdeaEvaluation]
 
+
+class IdeaWithEvaluation(BaseModel):
+    idea: ProposedIdea
+    evaluation: IdeaEvaluation
+
 class BlogPost(BaseModel):
     title: str = Field(..., description="SEO-optimized title of the blog post")
     slug: str = Field(..., description="URL-friendly slug version of the title")
@@ -35,6 +40,10 @@ class BlogPostEvaluation(BaseModel):
     content_quality: int = Field(..., ge=0, le=5)
     comments: str
 
+class BlogPostWithEvaluation(BaseModel):
+    blog_post: BlogPost
+    evaluation: BlogPostEvaluation
+
 class EmailBlastDraft(BaseModel):
     subject_line: str = Field(..., description="The email's subject line, optimized for opens")
     preview_text: str = Field(..., description="Short preview text shown in email clients")
@@ -49,6 +58,10 @@ class EmailBlastDraftEvaluation(BaseModel):
     cta_strength: int = Field(..., ge=0, le=5)
     tone_fit: int = Field(..., ge=0, le=5)
     comments: str
+
+class EmailBlastDraftWithEvaluation(BaseModel):
+    email_blast_draft: EmailBlastDraft
+    evaluation: EmailBlastDraftEvaluation
 
 class SocialMediaPost(BaseModel):
     platform: str = Field(..., description="Social media platform (e.g., Facebook, Instagram)")
@@ -66,3 +79,7 @@ class SocialMediaPostEvaluation(BaseModel):
     hashtag_relevance: int = Field(..., ge=0, le=5)
     clarity_appeal: int = Field(..., ge=0, le=5)
     comments: str
+
+class SocialMediaPostWithEvaluation(BaseModel):
+    social_media_post: SocialMediaPost
+    evaluation: SocialMediaPostEvaluation
